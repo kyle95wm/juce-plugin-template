@@ -10,7 +10,7 @@
 # Options:
 #   --repo <slug>          GitHub repo name under kyle95wm (default: kebab-case of the name,
 #                          ADCompressor -> ad-compressor)
-#   --dest <dir>           where to create it (default: ~/<repo slug>)
+#   --dest <dir>           where to create it: new or empty folder (default: ~/<repo slug>)
 #   --description "<text>" one-line plugin description (shown in hosts)
 #   --no-git               don't git init / commit
 #
@@ -59,7 +59,9 @@ LOWER="$(tr '[:upper:]' '[:lower:]' <<<"$NAME")"
 [[ -n "$DEST" ]] || DEST="$HOME/$REPO"
 [[ -n "$DESC" ]] || DESC="$NAME audio effect"
 [[ "$DESC" != *'"'* && "$DESC" != *'\'* ]] || die "description can't contain quotes or backslashes"
-[[ ! -e "$DEST" ]] || die "$DEST already exists"
+if [[ -e "$DEST" ]]; then
+  [[ -d "$DEST" && -z "$(ls -A "$DEST" | grep -vxE '\.DS_Store|\.claude')" ]] || die "$DEST already exists and isn't empty"
+fi
 
 # ---- Copy ---------------------------------------------------------------------
 mkdir -p "$DEST"
