@@ -13,6 +13,7 @@ Add a row here **before** releasing a new plugin. Codes are permanent.
 |---------|-------------|-----------|------|--------|---------|
 | VODucker | `VoDk` | `com.kyle95wm.voducker` | [kyle95wm/VO-Ducker](https://github.com/kyle95wm/VO-Ducker) | blue `#4fb3ff` | `aufx` |
 | ADCompressor | `Adcp` | `com.kyle95wm.adcompressor` | [kyle95wm/ad-compressor](https://github.com/kyle95wm/ad-compressor) | amber `#ffb238` | `aufx` |
+| VODeclicker | `VoDc` | `com.kyle95wm.vodeclicker` | [kyle95wm/vo-declicker](https://github.com/kyle95wm/vo-declicker) | violet `#a78bfa` | `aufx` |
 
 ## Naming
 
