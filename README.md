@@ -9,11 +9,11 @@ and a GitHub Actions release pipeline. The rules it encodes are in
 ## Start a new plugin
 
 ```bash
-~/juce-plugin-template/scripts/new-plugin.sh ADLimiter Adlm 0xff59d18c \
+~/Plugins/juce-plugin-template/scripts/new-plugin.sh ADLimiter Adlm 0xff59d18c \
   --description "True-peak limiter for AD mixes"
 ```
 
-That copies the template to `~/ad-limiter`, replaces every placeholder, and makes
+That copies the template to `~/Plugins/ad-limiter` (next to the template), replaces every placeholder, and makes
 the first commit. Then add the plugin to the registry in `CONVENTIONS.md`.
 
 (On GitHub you can also press **Use this template**, then run the same script on a

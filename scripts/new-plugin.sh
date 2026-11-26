@@ -10,7 +10,7 @@
 # Options:
 #   --repo <slug>          GitHub repo name under kyle95wm (default: kebab-case of the name,
 #                          ADCompressor -> ad-compressor)
-#   --dest <dir>           where to create it: new or empty folder (default: ~/<repo slug>)
+#   --dest <dir>           where to create it: new or empty folder (default: next to the template, e.g. ~/Plugins/<repo slug>)
 #   --description "<text>" one-line plugin description (shown in hosts)
 #   --no-git               don't git init / commit
 #
@@ -56,7 +56,7 @@ split_words() { perl -pe 's/([A-Z]+)([A-Z][a-z])/$1_$2/g; s/([a-z0-9])([A-Z])/$1
 MACRO="$(split_words "$NAME" | tr '[:lower:]' '[:upper:]')"
 LOWER="$(tr '[:upper:]' '[:lower:]' <<<"$NAME")"
 [[ -n "$REPO" ]] || REPO="$(split_words "$NAME" | tr '[:upper:]' '[:lower:]' | tr '_' '-')"
-[[ -n "$DEST" ]] || DEST="$HOME/$REPO"
+[[ -n "$DEST" ]] || DEST="$(dirname "$TEMPLATE")/$REPO"
 [[ -n "$DESC" ]] || DESC="$NAME audio effect"
 [[ "$DESC" != *'"'* && "$DESC" != *'\'* ]] || die "description can't contain quotes or backslashes"
 if [[ -e "$DEST" ]]; then
